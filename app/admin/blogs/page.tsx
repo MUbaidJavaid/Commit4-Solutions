@@ -1,5 +1,3 @@
-"use client";
-
 import AdminPosts from "@/pages/admin/AdminPosts";
 
 export const metadata = {

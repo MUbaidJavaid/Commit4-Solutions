@@ -2415,6 +2415,14 @@ h1, h2, h3, h4, h5, h6{
 .bg-white\/\[0\.03\]{
   background-color: rgb(255 255 255 / 0.03);
 }
+.bg-gray-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+}
+.bg-gray-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1));
+}
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -4898,6 +4906,10 @@ html {
 
   .xl\:block{
     display: block;
+  }
+
+  .xl\:grid-cols-5{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .xl\:text-6xl{

@@ -1,5 +1,3 @@
-"use client";
-
 import AdminLeads from "@/pages/admin/AdminLeads";
 
 export const metadata = {
