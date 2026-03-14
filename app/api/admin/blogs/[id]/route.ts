@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/db/connection";
 import { BlogPostModel } from "@/lib/db/models/BlogPost";
-import { BlogCategoryModel } from "@/lib/db/models/BlogCategory";
+import { BlogCategoryModel, type BlogCategoryDocument } from "@/lib/db/models/BlogCategory";
 import { sanitizeBlogHtml } from "@/lib/blog/sanitize";
 import { generateUniqueSlug } from "@/lib/blog/slug";
 
 interface Params {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 function estimateReadTime(html: string): string {
@@ -18,13 +19,16 @@ function estimateReadTime(html: string): string {
 
 export async function GET(_req: NextRequest, { params }: Params) {
   await connectToDatabase();
-  const post = await BlogPostModel.findById(params.id)
+  const { id } = await params;
+  const post = await BlogPostModel.findById(id)
     .populate("category")
     .lean();
 
   if (!post) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
+
+  const category = post.category as unknown as BlogCategoryDocument;
 
   return NextResponse.json({
     id: post._id.toString(),
@@ -34,7 +38,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
     content: post.contentHtml,
     featuredImage: post.featuredImage || "",
     author: post.author,
-    categoryId: (post.category as any)._id.toString(),
+    categoryId: category._id.toString(),
     tags: post.tags,
     status: post.status,
     seoTitle: post.seoTitle || "",
@@ -62,7 +66,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: "Invalid category" }, { status: 400 });
   }
 
-  const existing = await BlogPostModel.findById(params.id);
+  const { id } = await params;
+  const existing = await BlogPostModel.findById(id);
   if (!existing) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
@@ -77,7 +82,7 @@ export async function PUT(req: NextRequest, { params }: Params) {
   existing.contentHtml = safeHtml;
   existing.featuredImage = body.featuredImage || "";
   existing.author = body.author || "Admin";
-  existing.category = category._id;
+  existing.category = category._id as unknown as Types.ObjectId;
   existing.tags = Array.isArray(body.tags) ? body.tags : [];
   existing.status = body.status === "published" ? "published" : "draft";
   existing.seoTitle = body.seoTitle || body.title;
@@ -98,7 +103,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 export async function DELETE(_req: NextRequest, { params }: Params) {
   await connectToDatabase();
-  const deleted = await BlogPostModel.findByIdAndDelete(params.id).lean();
+  const { id } = await params;
+  const deleted = await BlogPostModel.findByIdAndDelete(id).lean();
   if (!deleted) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }

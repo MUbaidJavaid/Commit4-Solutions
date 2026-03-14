@@ -3,7 +3,7 @@ import { connectToDatabase } from "@/lib/db/connection";
 import { BlogCategoryModel } from "@/lib/db/models/BlogCategory";
 
 interface Params {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function PUT(req: NextRequest, { params }: Params) {
@@ -14,8 +14,10 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
   await connectToDatabase();
 
+  const { id } = await params;
+
   const updated = await BlogCategoryModel.findByIdAndUpdate(
-    params.id,
+    id,
     {
       name: body.name,
       slug: body.slug,
@@ -40,7 +42,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 export async function DELETE(_req: NextRequest, { params }: Params) {
   await connectToDatabase();
-  const existing = await BlogCategoryModel.findByIdAndDelete(params.id).lean();
+  const { id } = await params;
+  const existing = await BlogCategoryModel.findByIdAndDelete(id).lean();
   if (!existing) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }

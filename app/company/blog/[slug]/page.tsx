@@ -2,18 +2,19 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { connectToDatabase } from "@/lib/db/connection";
 import { BlogPostModel } from "@/lib/db/models/BlogPost";
-import { BlogCategoryModel } from "@/lib/db/models/BlogCategory";
+import { BlogCategoryModel, type BlogCategoryDocument } from "@/lib/db/models/BlogCategory";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
   await connectToDatabase();
+  const { slug } = await params;
   const post = await BlogPostModel.findOne({
-    slug: params.slug,
+    slug,
     status: "published",
   }).lean();
 
@@ -53,8 +54,10 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
   await connectToDatabase();
 
+  const { slug } = await params;
+
   const post = await BlogPostModel.findOne({
-    slug: params.slug,
+    slug,
     status: "published",
   })
     .populate("category")
@@ -64,7 +67,8 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  const categoryId = (post.category as any)._id.toString();
+  const categoryDoc = post.category as unknown as BlogCategoryDocument;
+  const categoryId = categoryDoc._id.toString();
   const category = await BlogCategoryModel.findById(categoryId).lean();
 
   return (

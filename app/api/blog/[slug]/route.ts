@@ -1,17 +1,19 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db/connection";
 import { BlogPostModel } from "@/lib/db/models/BlogPost";
-import { BlogCategoryModel } from "@/lib/db/models/BlogCategory";
+import { BlogCategoryModel, type BlogCategoryDocument } from "@/lib/db/models/BlogCategory";
 
 interface Params {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function GET(_req: Request, { params }: Params) {
   await connectToDatabase();
 
+  const { slug } = await params;
+
   const post = await BlogPostModel.findOne({
-    slug: params.slug,
+    slug,
     status: "published",
   })
     .populate("category")
@@ -21,7 +23,8 @@ export async function GET(_req: Request, { params }: Params) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const categoryId = (post.category as any)._id.toString();
+  const categoryDoc = post.category as unknown as BlogCategoryDocument;
+  const categoryId = categoryDoc._id.toString();
   const category = await BlogCategoryModel.findById(categoryId).lean();
 
   return NextResponse.json({
