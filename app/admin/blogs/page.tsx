@@ -1,4 +1,4 @@
-import AdminPosts from "@/pages/admin/AdminPosts";
+import AdminPosts from "@/modules/pages/admin/AdminPosts";
 
 export const metadata = {
   title: "Admin Blogs | Commit4Solutions",

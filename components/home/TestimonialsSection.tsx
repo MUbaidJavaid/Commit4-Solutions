@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
                     <Star key={j} className="w-4 h-4 fill-accent text-accent" />
                   ))}
                 </div>
-                <p className="text-sm font-body leading-[1.85] text-muted-foreground mb-7 flex-1">"{t.quote}"</p>
+                <p className="text-sm font-body leading-[1.85] text-muted-foreground mb-7 flex-1">&ldquo;{t.quote}&rdquo;</p>
                 <div className="border-t border-border/50 pt-5">
                   <div className="flex items-center gap-3">
                     <div className="w-11 h-11 rounded-full bg-accent/15 flex items-center justify-center">

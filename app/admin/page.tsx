@@ -1,4 +1,4 @@
-import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminDashboard from "@/modules/pages/admin/AdminDashboard";
 
 export const metadata = {
   title: "Admin Dashboard | Commit4Solutions",

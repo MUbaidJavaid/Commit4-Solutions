@@ -1,4 +1,4 @@
-import WorkPage from "@/pages/Work";
+import WorkPage from "@/modules/pages/Work";
 
 export const metadata = {
   title: "Our Work | Commit4Solutions",

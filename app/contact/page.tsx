@@ -1,4 +1,4 @@
-import ContactPage from "@/pages/Contact";
+import ContactPage from "@/modules/pages/Contact";
 
 export const metadata = {
   title: "Contact | Commit4Solutions",

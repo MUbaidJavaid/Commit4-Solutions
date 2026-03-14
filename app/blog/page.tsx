@@ -1,4 +1,4 @@
-import BlogPage from "@/pages/Blog";
+import BlogPage from "@/modules/pages/Blog";
 
 export const metadata = {
   title: "Blog | Commit4Solutions",

@@ -1,4 +1,4 @@
-import AboutPage from "@/pages/About";
+import AboutPage from "@/modules/pages/About";
 
 export const metadata = {
   title: "About | Commit4Solutions",

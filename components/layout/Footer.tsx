@@ -65,7 +65,7 @@ export default function Footer () {
             </div>
             <p className='text-sm font-body text-primary-foreground/55 leading-relaxed mb-6'>
               We engineer digital products that drive growth. From concept to
-              scale, we're the technology partner ambitious companies trust.
+              scale, we&apos;re the technology partner ambitious companies trust.
             </p>
             <Link href='/contact' className='btn-accent text-xs'>
               Start a Project <ArrowUpRight className='w-3.5 h-3.5' />

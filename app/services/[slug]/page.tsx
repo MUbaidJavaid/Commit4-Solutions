@@ -1,11 +1,10 @@
-import ServiceDetail from "@/pages/ServiceDetail";
+import ServiceDetail from '@/modules/pages/ServiceDetail'
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }
 
-export default async function Page({ params }: Props) {
-  const { slug } = await params;
-  return <ServiceDetail slug={slug} />;
+export default async function Page ({ params }: Props) {
+  const { slug } = await params
+  return <ServiceDetail slug={slug} />
 }
-

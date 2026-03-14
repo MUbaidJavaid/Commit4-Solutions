@@ -1,4 +1,4 @@
-import HireDevPage from "@/pages/HireDev";
+import HireDevPage from "@/modules/pages/HireDev";
 
 export const metadata = {
   title: "Hire Developers | Commit4Solutions",

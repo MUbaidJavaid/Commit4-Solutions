@@ -28,7 +28,7 @@ export default function WhyUsSection() {
           <SectionLabel>Why NexaBuild</SectionLabel>
           <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight max-w-2xl leading-tight">
-              Built for companies that can't afford to get it wrong
+              Built for companies that can&apos;t afford to get it wrong
             </h2>
             <Link href="/why-us" className="btn-outline text-xs shrink-0 mt-2">
               Learn More <ArrowRight className="w-3.5 h-3.5" />

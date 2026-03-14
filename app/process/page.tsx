@@ -1,4 +1,4 @@
-import ProcessPage from "@/pages/Process";
+import ProcessPage from "@/modules/pages/Process";
 
 export const metadata = {
   title: "Our Process | Commit4Solutions",

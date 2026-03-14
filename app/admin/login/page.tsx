@@ -1,4 +1,4 @@
-import AdminLogin from "@/pages/admin/AdminLogin";
+import AdminLogin from "@/modules/pages/admin/AdminLogin";
 
 export const metadata = {
   title: "Admin Login | Commit4Solutions",

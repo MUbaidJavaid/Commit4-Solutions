@@ -1,4 +1,4 @@
-import AdminLeads from "@/pages/admin/AdminLeads";
+import AdminLeads from "@/modules/pages/admin/AdminLeads";
 
 export const metadata = {
   title: "Leads | Commit4Solutions",

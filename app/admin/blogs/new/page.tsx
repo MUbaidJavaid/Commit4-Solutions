@@ -1,4 +1,4 @@
-import AdminPostEditor from "@/pages/admin/AdminPostEditor";
+import AdminPostEditor from "@/modules/pages/admin/AdminPostEditor";
 
 export const metadata = {
   title: "New Blog Post | Commit4Solutions",

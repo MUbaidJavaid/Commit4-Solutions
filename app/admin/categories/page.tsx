@@ -1,4 +1,4 @@
-import AdminCategories from "@/pages/admin/AdminCategories";
+import AdminCategories from "@/modules/pages/admin/AdminCategories";
 
 export const metadata = {
   title: "Categories | Commit4Solutions",

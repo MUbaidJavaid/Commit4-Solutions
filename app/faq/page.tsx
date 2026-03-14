@@ -1,4 +1,4 @@
-import FAQPage from "@/pages/FAQ";
+import FAQPage from "@/modules/pages/FAQ";
 
 export const metadata = {
   title: "FAQ | Commit4Solutions",

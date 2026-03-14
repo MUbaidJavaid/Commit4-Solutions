@@ -2,7 +2,13 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}", "./modules/**/*.{ts,tsx}", "./contexts/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./modules/**/*.{ts,tsx}",
+    "./contexts/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -14,8 +20,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        body: ['"Manrope"', 'system-ui', 'sans-serif'],
+        heading: ['"Space Grotesk"', "system-ui", "sans-serif"],
+        body: ['"Manrope"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,7 +61,7 @@ export default {
         "green-light": "hsl(var(--green-light))",
         "blue-brand": "hsl(var(--blue-brand))",
         "blue-light": "hsl(var(--blue-light))",
-        "lavender": "hsl(var(--lavender))",
+        lavender: "hsl(var(--lavender))",
         "lavender-light": "hsl(var(--lavender-light))",
         "cream-dark": "hsl(var(--cream-dark))",
         sidebar: {
@@ -95,7 +101,7 @@ export default {
           "0%": { opacity: "0", transform: "translateY(-8px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "shimmer": {
+        shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
       },

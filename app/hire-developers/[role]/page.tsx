@@ -1,11 +1,10 @@
-import HireDevDetail from "@/pages/HireDevDetail";
+import HireDevDetail from '@/modules/pages/HireDevDetail'
 
 interface Props {
-  params: Promise<{ role: string }>;
+  params: Promise<{ role: string }>
 }
 
-export default async function Page({ params }: Props) {
-  const { role } = await params;
-  return <HireDevDetail slug={role} />;
+export default async function Page ({ params }: Props) {
+  const { role } = await params
+  return <HireDevDetail slug={role} />
 }
-

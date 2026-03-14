@@ -1,4 +1,4 @@
-import IndustriesPage from "@/pages/Industries";
+import IndustriesPage from "@/modules/pages/Industries";
 
 export const metadata = {
   title: "Industries We Serve | Commit4Solutions",

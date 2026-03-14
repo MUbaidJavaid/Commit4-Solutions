@@ -1,4 +1,4 @@
-import CareersPage from "@/pages/Careers";
+import CareersPage from "@/modules/pages/Careers";
 
 export const metadata = {
   title: "Careers | Commit4Solutions",
