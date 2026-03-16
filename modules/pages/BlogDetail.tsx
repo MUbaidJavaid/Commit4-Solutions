@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Clock, Share2, Tag, ChevronRight, Link2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/layout/PageLayout";
@@ -169,11 +170,12 @@ export default function BlogDetail({ slug }: Props) {
         <div className="container-wide section-padding pt-10 pb-0">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection delay={0.1}>
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
+              <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 sm:h-80 lg:h-[440px]">
+                <Image
                   src={post.featuredImage}
                   alt={post.title}
-                  className="w-full h-64 sm:h-80 lg:h-[440px] object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </AnimatedSection>
@@ -303,10 +305,11 @@ export default function BlogDetail({ slug }: Props) {
                     className="group card-premium-elevated overflow-hidden h-full flex flex-col"
                   >
                     <div className="relative h-48 overflow-hidden">
-                      <img
+                      <Image
                         src={b.featuredImage}
                         alt={b.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute top-4 left-4">
                         <span className="pill-accent text-[10px]">

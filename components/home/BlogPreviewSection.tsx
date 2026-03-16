@@ -1,6 +1,7 @@
  "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "../shared/AnimatedSection";
 import SectionLabel from "../shared/SectionLabel";
@@ -33,10 +34,11 @@ export default function BlogPreviewSection() {
           {/* Hero article */}
           <AnimatedSection className="lg:col-span-3">
             <Link href={`/blog/${hero.slug}`} className="group relative overflow-hidden rounded-3xl h-full min-h-[380px] flex flex-col justify-end">
-              <img
+              <Image
                 src={hero.imageUrl}
                 alt={hero.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
               <div className="relative p-8">
@@ -57,11 +59,12 @@ export default function BlogPreviewSection() {
             {rest.map((article, i) => (
               <AnimatedSection key={article.slug} delay={(i + 1) * 0.1}>
                 <Link href={`/blog/${article.slug}`} className="group flex gap-4 items-start p-4 rounded-2xl border border-border/50 bg-card hover:shadow-md hover:-translate-y-0.5 transition-all duration-500">
-                  <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0">
-                    <img
+                  <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
+                    <Image
                       src={article.imageUrl}
                       alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
                   <div className="flex-1 min-w-0">

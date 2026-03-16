@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function TrustedCompaniesSection () {
   const logos = [
     {
@@ -54,11 +56,13 @@ export default function TrustedCompaniesSection () {
           {logos.map(logo => (
             <div
               key={logo.name}
-              className='flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity'
+              className='relative h-8 w-20 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity'
             >
-              <img
+              <Image
                 src={logo.src}
                 alt={logo.name}
+                width={80}
+                height={32}
                 className='h-8 w-auto object-contain'
                 loading='lazy'
               />

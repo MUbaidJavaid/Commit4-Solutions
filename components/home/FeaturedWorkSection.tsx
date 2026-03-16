@@ -3,6 +3,7 @@
 import { projects } from '@/data/projects'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import AnimatedSection from '../shared/AnimatedSection'
 import SectionLabel from '../shared/SectionLabel'
 
@@ -35,9 +36,10 @@ export default function FeaturedWorkSection () {
               href={`/work/${featured[0].slug}`}
               className='group relative overflow-hidden rounded-3xl h-[420px] flex flex-col justify-end'
             >
-              <img
+              <Image
                 src={featured[0].imageUrl}
                 alt={featured[0].title}
+                fill
                 className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2'
               />
 
@@ -100,9 +102,10 @@ export default function FeaturedWorkSection () {
                   className='group flex flex-col sm:flex-row overflow-hidden rounded-2xl border border-border/60 bg-background hover:shadow-xl hover:-translate-y-0.5 transition-all duration-500 h-full'
                 >
                   <div className='relative w-full sm:w-[45%] h-48 sm:h-auto overflow-hidden shrink-0'>
-                    <img
+                    <Image
                       src={project.imageUrl}
                       alt={project.title}
+                      fill
                       className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
                     />
                     <div className='absolute inset-0 bg-gradient-to-r from-transparent to-foreground/10 sm:bg-gradient-to-r sm:from-transparent sm:to-background/20' />

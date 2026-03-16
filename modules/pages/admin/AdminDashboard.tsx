@@ -1,6 +1,7 @@
  "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FileText, FolderOpen, MessageSquare, TrendingUp, Plus, Eye, Edit2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -105,7 +106,9 @@ export default function AdminDashboard() {
                   className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group"
                 >
                   {post.featuredImage ? (
-                    <img src={post.featuredImage} alt="" className="w-10 h-10 rounded-lg object-cover shrink-0" />
+                    <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0">
+                      <Image src={post.featuredImage} alt="" fill className="object-cover" unoptimized />
+                    </div>
                   ) : (
                     <div className="w-10 h-10 rounded-lg bg-white/5 shrink-0" />
                   )}

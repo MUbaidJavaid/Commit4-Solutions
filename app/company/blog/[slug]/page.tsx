@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { connectToDatabase } from "@/lib/db/connection";
 import { BlogPostModel } from "@/lib/db/models/BlogPost";
 import { BlogCategoryModel, type BlogCategoryDocument } from "@/lib/db/models/BlogCategory";
@@ -104,11 +105,13 @@ export default async function Page({ params }: Props) {
         </header>
 
         {post.featuredImage && (
-          <div className="mb-10 rounded-2xl overflow-hidden">
-            <img
+          <div className="relative mb-10 rounded-2xl overflow-hidden aspect-video w-full">
+            <Image
               src={post.featuredImage}
               alt={post.title}
-              className="w-full h-auto object-cover"
+              fill
+              className="object-cover"
+              unoptimized
             />
           </div>
         )}

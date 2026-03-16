@@ -3,6 +3,7 @@
 import RichTextEditor from '@/components/admin/RichTextEditor'
 import type { BlogCategory } from '@/lib/api/types'
 import { ArrowLeft, Eye, Save } from 'lucide-react'
+import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
@@ -385,11 +386,15 @@ export default function AdminPostEditor () {
               />
             </div>
             {form.featuredImage && (
-              <img
-                src={form.featuredImage}
-                alt='Preview'
-                className='w-full h-32 object-cover rounded-xl'
-              />
+              <div className='relative w-full h-32 rounded-xl overflow-hidden'>
+                <Image
+                  src={form.featuredImage}
+                  alt='Preview'
+                  fill
+                  className='object-cover'
+                  unoptimized
+                />
+              </div>
             )}
           </div>
         </div>

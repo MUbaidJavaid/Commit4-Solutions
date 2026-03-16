@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, User, ArrowRight, Search, ChevronDown, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageLayout from "@/components/layout/PageLayout";
@@ -94,10 +95,11 @@ export default function BlogPage() {
                 className="group grid lg:grid-cols-[1.15fr_1fr] gap-0 card-premium-elevated overflow-hidden"
               >
                 <div className="relative h-72 lg:h-[420px] overflow-hidden">
-                  <img
+                  <Image
                     src={featured.featuredImage}
                     alt={featured.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-card/20" />
                   <div className="absolute top-6 left-6">
@@ -286,10 +288,11 @@ export default function BlogPage() {
                       className="group card-premium-elevated overflow-hidden h-full flex flex-col"
                     >
                       <div className="relative h-52 overflow-hidden">
-                        <img
+                        <Image
                           src={blog.featuredImage}
                           alt={blog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
                         <div className="absolute top-4 left-4">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Plus, Search, Edit2, Trash2, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import type { BlogPost, BlogCategory } from "@/lib/api/types";
@@ -165,7 +166,9 @@ export default function AdminPosts() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         {post.featuredImage ? (
-                          <img src={post.featuredImage} alt="" className="w-10 h-10 rounded-lg object-cover shrink-0" />
+                          <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0">
+                            <Image src={post.featuredImage} alt="" fill className="object-cover" unoptimized />
+                          </div>
                         ) : (
                           <div className="w-10 h-10 rounded-lg bg-white/5 shrink-0" />
                         )}

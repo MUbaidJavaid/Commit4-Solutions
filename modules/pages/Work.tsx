@@ -1,10 +1,11 @@
-//  "use client";
+ "use client";
 
 import PageLayout from '@/components/layout/PageLayout'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import PageHero from '@/components/shared/PageHero'
 import { projects } from '@/data/projects'
 import { ArrowUpRight, Link } from 'lucide-react'
+import Image from 'next/image'
 import { useState } from 'react'
 
 // import { useState } from "react";
@@ -162,10 +163,11 @@ export default function WorkPage () {
                   >
                     {/* Image + overlays container */}
                     <div className='relative h-full w-full overflow-hidden flex-1'>
-                      <img
+                      <Image
                         src={project.imageUrl}
                         alt={project.title}
-                        className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-3'
+                        fill
+                        className='object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-3'
                       />
 
                       {/* Default subtle gradient */}

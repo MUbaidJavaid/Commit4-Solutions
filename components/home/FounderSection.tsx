@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import AnimatedSection from '../shared/AnimatedSection'
 import SectionLabel from '../shared/SectionLabel'
 
@@ -19,9 +20,11 @@ export default function FounderSection () {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <img
+                <Image
                   src='/commit4solutions-log.png'
                   alt='Commit4Solutions leadership'
+                  width={800}
+                  height={400}
                   className='w-full h-[400px] object-contain bg-background'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent' />

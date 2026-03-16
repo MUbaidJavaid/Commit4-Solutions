@@ -1,6 +1,7 @@
  "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
 import AnimatedSection from "@/components/shared/AnimatedSection";
@@ -31,8 +32,8 @@ export default function ProjectDetail({ slug }: Props) {
     <PageLayout>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="relative">
-          <img src={project.imageUrl} alt={project.title} className="w-full h-64 sm:h-80 lg:h-[420px] object-cover" />
+        <div className="relative h-64 sm:h-80 lg:h-[420px]">
+          <Image src={project.imageUrl} alt={project.title} fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
         <div className="container-wide section-padding -mt-24 relative z-10">
@@ -123,7 +124,9 @@ export default function ProjectDetail({ slug }: Props) {
             {otherProjects.map((p, i) => (
               <AnimatedSection key={p.slug} delay={i * 0.1}>
                 <Link href={`/our-work/${p.slug}`} className="group card-premium overflow-hidden flex flex-col sm:flex-row">
-                  <img src={p.imageUrl} alt={p.title} className="w-full sm:w-48 h-40 sm:h-auto object-cover" />
+                  <div className="relative w-full sm:w-48 h-40 sm:h-32 shrink-0">
+                    <Image src={p.imageUrl} alt={p.title} fill className="object-cover" />
+                  </div>
                   <div className="p-6">
                     <span className="text-xs font-body text-accent">{p.category}</span>
                     <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-accent transition-colors">{p.title}</h3>

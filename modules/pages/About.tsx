@@ -1,6 +1,7 @@
  "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Users, Target, Lightbulb, Heart, Globe, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/layout/PageLayout";
@@ -128,10 +129,11 @@ export default function AboutPage() {
                     className={`relative ${heights[i]} w-full overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-500`}
                     style={{ borderRadius: archBorderRadius }}
                   >
-                    <img
+                    <Image
                       src="/commit4solutions-log.png"
                       alt={member.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -163,10 +165,11 @@ export default function AboutPage() {
                     className={`relative ${heights[i]} w-full overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-500`}
                     style={{ borderRadius: archBorderRadius }}
                   >
-                    <img
+                    <Image
                       src="/commit4solutions-log.png"
                       alt={member.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">

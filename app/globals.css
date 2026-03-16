@@ -134,9 +134,8 @@
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-green-700 text-primary-foreground font-body font-semibold text-sm rounded-full hover:opacity-90 transition-all duration-200 hover:shadow-lg;
   }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-body font-semibold text-sm rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-200;
+  bg-card .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-body font-semibold text-sm rounded-full bg-white hover:bg-primary hover:text-primary-foreground transition-all duration-200;
   }
 
   .btn-accent {
