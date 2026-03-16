@@ -85,6 +85,11 @@ export default function WhyUsSection () {
                   i % 3 === 0 ? 'bg-green-light/30' : 'bg-card'
                 }`}
               >
+                {/* Big index number in top-right */}
+                <div className='pointer-events-none absolute top-4 right-4 text-3xl sm:text-4xl font-heading font-semibold text-foreground/5 group-hover:text-foreground/10 transition-colors duration-500'>
+                  {(i + 1).toString().padStart(2, '0')}
+                </div>
+
                 {/* Decorative accent */}
                 <div className='absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-accent/[0.04] group-hover:bg-accent/[0.1] group-hover:scale-150 transition-all duration-700' />
 

@@ -128,8 +128,8 @@ export default function Header () {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-background/85 backdrop-blur-2xl shadow-sm border-b border-border/50'
-          : 'bg-transparent'
+          ? 'bg-[#18251f]/95 backdrop-blur-sm shadow-sm border-b border-border/50'
+          : 'bg-[#18251f]/90 backdrop-blur-sm border-b border-border/40'
       }`}
     >
       <div className='container-wide section-padding'>
@@ -149,7 +149,7 @@ export default function Header () {
                 priority
               />
             </div>
-            <span className='font-heading font-bold text-xl text-foreground tracking-tight'>
+            <span className='font-heading font-bold text-xl text-white tracking-tight'>
               Commit4Solutions
             </span>
           </Link>
@@ -168,10 +168,10 @@ export default function Header () {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`relative px-4 py-2 text-sm font-body font-medium transition-colors duration-200 rounded-lg hover:bg-muted ${
+                    className={`relative px-4 py-2 text-sm font-body font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 ${
                       isActive(item.href)
-                        ? 'text-accent'
-                        : 'text-foreground/70 hover:text-foreground'
+                        ? 'text-green-700'
+                        : 'text-slate-200 hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -184,10 +184,10 @@ export default function Header () {
                   </Link>
                 ) : (
                   <button
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-body font-medium transition-colors duration-200 rounded-lg hover:bg-muted ${
+                    className={`flex items-center gap-1 px-4 py-2 text-sm font-body font-medium transition-colors duration-200 rounded-lg hover:bg-white/5 ${
                       isDropdownActive(item.dropdown)
-                        ? 'text-accent'
-                        : 'text-foreground/70 hover:text-foreground'
+                        ? 'text-primary'
+                        : 'text-slate-200 hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -292,18 +292,7 @@ export default function Header () {
             <div className='section-padding py-6 flex flex-col gap-1 max-h-[80vh] overflow-y-auto'>
               {navItems.map(item => (
                 <div key={item.label}>
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className={`block px-4 py-3 text-sm font-body font-medium rounded-xl hover:bg-muted transition-colors ${
-                        isActive(item.href)
-                          ? 'text-accent bg-green-light/30'
-                          : 'text-foreground'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
+                  {item.dropdown ? (
                     <details className='group'>
                       <summary
                         className={`flex items-center justify-between px-4 py-3 text-sm font-body font-medium rounded-xl hover:bg-muted transition-colors cursor-pointer list-none ${
@@ -316,6 +305,14 @@ export default function Header () {
                         <ChevronDown className='w-4 h-4 transition-transform duration-300 group-open:rotate-180' />
                       </summary>
                       <div className='ml-4 mt-1 flex flex-col gap-0.5 border-l-2 border-green-light pl-4'>
+                        {item.href && (
+                          <Link
+                            href={item.href}
+                            className='block px-3 py-2.5 text-sm font-body rounded-lg font-semibold text-foreground hover:bg-muted'
+                          >
+                            View all {item.label}
+                          </Link>
+                        )}
                         {getDropdownItems(item.dropdown!).map(sub => (
                           <Link
                             key={sub.title}
@@ -331,12 +328,23 @@ export default function Header () {
                         ))}
                       </div>
                     </details>
+                  ) : (
+                    <Link
+                      href={item.href!}
+                      className={`block px-4 py-3 text-sm font-body font-medium rounded-xl hover:bg-muted transition-colors ${
+                        isActive(item.href)
+                          ? 'text-accent bg-green-light/30'
+                          : 'text-foreground'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
                   )}
                 </div>
               ))}
               <Link
                 href='/contact'
-                className='btn-primary mt-4 text-center justify-center'
+                className='btn-primary bg-green-700 mt-4 text-center justify-center'
               >
                 Book a Call
                 <ArrowRight className='w-4 h-4' />

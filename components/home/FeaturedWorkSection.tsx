@@ -33,16 +33,24 @@ export default function FeaturedWorkSection () {
           <AnimatedSection delay={0.05}>
             <Link
               href={`/work/${featured[0].slug}`}
-              className='group relative overflow-hidden rounded-3xl h-full min-h-[400px] flex flex-col justify-end'
+              className='group relative overflow-hidden rounded-3xl h-[420px] flex flex-col justify-end'
             >
               <img
                 src={featured[0].imageUrl}
                 alt={featured[0].title}
-                className='absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700'
+                className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent' />
-              <div className='relative p-8 lg:p-10'>
-                <div className='flex gap-1.5 flex-wrap mb-3'>
+
+              {/* Base dark overlay + hover deep-green rise (#18251f) */}
+              <div className='absolute inset-0 pointer-events-none'>
+                <div className='absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent transition-opacity duration-500 group-hover:opacity-0' />
+                <div className='absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#18251f] via-[#18251f]/90 to-transparent opacity-100 group-hover:h-2/3 transition-[height] duration-500 ease-out' />
+              </div>
+
+              {/* Content */}
+              <div className='relative p-8 lg:p-10 flex flex-col justify-end h-full'>
+                {/* Top row: tags + category, hidden until hover */}
+                <div className='flex gap-1.5 flex-wrap mb-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300'>
                   {featured[0].techStack.slice(0, 4).map(tag => (
                     <span
                       key={tag}
@@ -52,16 +60,20 @@ export default function FeaturedWorkSection () {
                     </span>
                   ))}
                 </div>
-                <span className='text-xs font-body font-medium text-accent mb-2 block'>
+                <span className='text-xs font-body font-medium text-accent mb-2 block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75'>
                   {featured[0].category}
                 </span>
-                <h3 className='font-heading font-bold text-xl lg:text-2xl text-primary-foreground mb-2'>
+
+                {/* Heading: always visible, anchored near bottom, moves up on hover */}
+                <h3 className='font-heading font-bold text-xl lg:text-2xl text-primary-foreground mb-2 translate-y-4 group-hover:-translate-y-1 transition-transform duration-300'>
                   {featured[0].title}
                 </h3>
-                <p className='text-sm font-body text-primary-foreground/70 max-w-md mb-4'>
+
+                {/* Description + results slide up under heading on hover */}
+                <p className='text-sm font-body text-primary-foreground/85 max-w-md mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100'>
                   {featured[0].shortDesc}
                 </p>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-150'>
                   {featured[0].results.slice(0, 2).map(r => (
                     <span
                       key={r}

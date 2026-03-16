@@ -24,6 +24,17 @@ export default {
         body: ['"Manrope"', "system-ui", "sans-serif"],
       },
       colors: {
+        primary: {
+          DEFAULT: "#0DB044",
+          foreground: "#111111",
+        },
+        secondary: {
+          DEFAULT: "#283618",
+          foreground: "#F5F5F5",
+        },
+        black: "#111111",
+        white: "#F5F5F5",
+        "deep-green": "#0DB044",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
