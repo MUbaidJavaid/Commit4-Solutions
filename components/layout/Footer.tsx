@@ -41,10 +41,23 @@ const footerLinks = {
 export default function Footer () {
   return (
     <footer className='bg-primary text-primary-foreground relative overflow-hidden'>
-      {/* Decorative */}
-      <div className='absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px]' />
+      {/* Bara background watermark - Commit4 Solutions (size ise fit kiye taake cut na ho) */}
+      <div
+        className='absolute inset-0 flex items-center justify-center px-6 -mt-48 pointer-events-none z-0'
+        aria-hidden
+      >
+        <span
+          className='font-heading font-extrabold whitespace-nowrap text-primary-foreground/[0.06] select-none text-center max-w-full'
+          style={{ fontSize: 'clamp(8rem, 12vw, 8rem)' }}
+        >
+          Commit4 Solutions
+        </span>
+      </div>
 
-      <div className='relative container-wide section-padding py-16 lg:py-20'>
+      {/* Decorative */}
+      <div className='absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-0' />
+
+      <div className='relative z-10 container-wide section-padding py-16 lg:py-20'>
         {/* Top */}
         <div className='flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-16'>
           {/* Brand */}
