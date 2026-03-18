@@ -21,7 +21,7 @@ export default function QuickTeamCTASection () {
           </div>
 
           <div className='relative z-10 max-w-xl'>
-            <p className='text-[11px] sm:text-xs font-body font-semibold uppercase tracking-[0.25em] text-primary'>
+            <p className='text-[11px] sm:text-xs font-body font-semibold uppercase tracking-[0.25em] text-white/20'>
               Fast Team Deployment
             </p>
             <h2 className='mt-3 text-2xl sm:text-3xl lg:text-4xl font-heading font-semibold tracking-tight'>
