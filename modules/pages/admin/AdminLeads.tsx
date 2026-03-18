@@ -1,4 +1,5 @@
-import { useState } from "react";
+'use client';
+
 import { getLeads } from "@/lib/api/storage";
 import { motion } from "framer-motion";
 import { Mail, Building2, DollarSign, Clock } from "lucide-react";
